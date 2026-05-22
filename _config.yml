@@ -1,0 +1,41 @@
+# ---- Site settings ----
+title: MindCopilot
+tagline: 在 AI 浪潮中记录学习、思考与创造
+description: >-
+  MindCopilot 是一个技术博客，记录在人工智能时代的学习、思考与创造 ——
+  涵盖 AI 工具实践、编程开发、阅读写作与设计创意。
+author: MindCopilot
+email: mindcopilotone@gmail.com
+lang: zh-CN
+
+url: "https://mindcopilot.github.io"
+baseurl: ""
+
+github_username: mindcopilot
+
+# ---- Build settings ----
+markdown: kramdown
+permalink: /posts/:year/:month/:day/:title/
+
+# This site ships its own layouts and CSS, so opt out of the default
+# GitHub Pages theme (jekyll-theme-primer) to avoid conflicting assets.
+theme: null
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Apply the post layout to everything under _posts automatically.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .jekyll-cache
