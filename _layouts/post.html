@@ -1,0 +1,29 @@
+---
+layout: default
+---
+<article class="post-full">
+  <div class="wrap wrap-narrow">
+    <header class="post-hero">
+      <a href="{{ '/blog/' | relative_url }}" class="back-link">← 返回文章列表</a>
+      <div class="post-meta-row">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y 年 %-m 月 %-d 日" }}</time>
+        {%- for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+        {%- endfor %}
+      </div>
+      <h1>{{ page.title }}</h1>
+      {%- if page.description %}
+      <p class="post-sub">{{ page.description }}</p>
+      {%- endif %}
+    </header>
+
+    <div class="prose">
+      {{ content }}
+    </div>
+
+    <footer class="post-foot">
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-ghost">← 查看全部文章</a>
+      <a href="mailto:{{ site.email }}" class="btn btn-ghost">✉️ 聊聊这篇文章</a>
+    </footer>
+  </div>
+</article>

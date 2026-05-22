@@ -1,748 +1,231 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MindCopilot · 在 AI 浪潮中记录学习与思考</title>
-  <meta name="description" content="MindCopilot 是一个技术博客，记录在人工智能时代的学习、思考与创造 —— 涵盖 AI 工具实践、编程开发、阅读写作与设计创意。" />
-  <meta name="author" content="MindCopilot" />
-  <meta name="theme-color" content="#6d5efc" />
+---
+layout: default
+title: 首页
+description: >-
+  MindCopilot 是一个技术博客，记录在人工智能时代的学习、思考与创造 ——
+  涵盖 AI 工具实践、编程开发、阅读写作与设计创意。
+---
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="MindCopilot · 在 AI 浪潮中记录学习与思考" />
-  <meta property="og:description" content="一个关于 AI、编程、阅读写作与设计的技术博客。" />
-  <meta property="og:locale" content="zh_CN" />
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>" />
-
-  <style>
-    :root {
-      --bg: #ffffff;
-      --bg-soft: #f6f6fb;
-      --bg-card: #ffffff;
-      --text: #1a1a2e;
-      --text-soft: #5a5a72;
-      --text-faint: #8a8aa0;
-      --border: #e7e7f0;
-      --accent: #6d5efc;
-      --accent-2: #00c2c7;
-      --accent-soft: rgba(109, 94, 252, 0.10);
-      --shadow: 0 4px 24px rgba(26, 26, 46, 0.06);
-      --shadow-hover: 0 12px 36px rgba(109, 94, 252, 0.16);
-      --radius: 16px;
-      --max: 1080px;
-      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-        "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
-    }
-
-    [data-theme="dark"] {
-      --bg: #0e0e1a;
-      --bg-soft: #15152a;
-      --bg-card: #16162c;
-      --text: #ececf4;
-      --text-soft: #a7a7c0;
-      --text-faint: #6e6e8a;
-      --border: #262640;
-      --accent: #8a7dff;
-      --accent-2: #2dd6db;
-      --accent-soft: rgba(138, 125, 255, 0.14);
-      --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-      --shadow-hover: 0 12px 36px rgba(138, 125, 255, 0.22);
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-
-    /* ---------- Navbar ---------- */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: color-mix(in srgb, var(--bg) 82%, transparent);
-      backdrop-filter: saturate(180%) blur(14px);
-      -webkit-backdrop-filter: saturate(180%) blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: -0.01em;
-    }
-    .brand .logo { font-size: 1.35rem; }
-    .nav-links { display: flex; align-items: center; gap: 4px; }
-    .nav-links a {
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 0.92rem;
-      color: var(--text-soft);
-      transition: color 0.15s, background 0.15s;
-    }
-    .nav-links a:hover { color: var(--text); background: var(--accent-soft); }
-    .theme-btn {
-      width: 38px; height: 38px;
-      display: grid; place-items: center;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: var(--bg-card);
-      cursor: pointer;
-      font-size: 1rem;
-      color: var(--text);
-      transition: border-color 0.15s, transform 0.15s;
-    }
-    .theme-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
-
-    /* ---------- Hero ---------- */
-    .hero {
-      position: relative;
-      padding: 96px 0 80px;
-      text-align: center;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(520px 320px at 20% 0%, var(--accent-soft), transparent 70%),
-        radial-gradient(480px 300px at 85% 20%, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 70%);
-      pointer-events: none;
-    }
-    .hero > * { position: relative; }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 28px;
-    }
-    .eyebrow .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px var(--accent-soft);
-    }
-    .hero h1 {
-      font-size: clamp(2.1rem, 5.5vw, 3.4rem);
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      font-weight: 800;
-      margin-bottom: 22px;
-    }
-    .hero h1 .grad {
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p.lead {
-      max-width: 620px;
-      margin: 0 auto 34px;
-      font-size: 1.08rem;
-      color: var(--text-soft);
-    }
-    .cta-row {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
-    }
-    .btn-primary {
-      background: linear-gradient(120deg, var(--accent), color-mix(in srgb, var(--accent) 60%, var(--accent-2)));
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
-    .btn-ghost {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-    .btn-ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
-
-    /* ---------- Sections ---------- */
-    section { padding: 72px 0; }
-    .section-soft { background: var(--bg-soft); }
-    .section-head { margin-bottom: 44px; }
-    .section-head .kicker {
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-    .section-head h2 {
-      font-size: clamp(1.6rem, 3.5vw, 2.1rem);
-      letter-spacing: -0.02em;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-    .section-head p {
-      color: var(--text-soft);
-      max-width: 620px;
-      font-size: 1rem;
-    }
-
-    /* ---------- About ---------- */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-    .about-text p { color: var(--text-soft); margin-bottom: 16px; }
-    .about-text p strong { color: var(--text); font-weight: 600; }
-    .about-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-    .about-card h3 {
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      margin-bottom: 18px;
-    }
-    .fact { display: flex; gap: 12px; padding: 10px 0; }
-    .fact + .fact { border-top: 1px dashed var(--border); }
-    .fact .ico { font-size: 1.1rem; }
-    .fact .k { font-size: 0.78rem; color: var(--text-faint); }
-    .fact .v { font-weight: 600; font-size: 0.95rem; }
-
-    /* ---------- Interests ---------- */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 26px;
-      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
-      border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
-    }
-    .card .emoji {
-      width: 48px; height: 48px;
-      display: grid; place-items: center;
-      border-radius: 12px;
-      background: var(--accent-soft);
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-    }
-    .card h3 { font-size: 1.1rem; margin-bottom: 8px; letter-spacing: -0.01em; }
-    .card p { color: var(--text-soft); font-size: 0.93rem; }
-
-    /* ---------- Timeline (Recent) ---------- */
-    .timeline { position: relative; padding-left: 28px; }
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 7px; top: 6px; bottom: 6px;
-      width: 2px;
-      background: linear-gradient(var(--accent), var(--accent-2));
-    }
-    .tl-item { position: relative; padding-bottom: 28px; }
-    .tl-item:last-child { padding-bottom: 0; }
-    .tl-item::before {
-      content: "";
-      position: absolute;
-      left: -28px; top: 6px;
-      width: 16px; height: 16px;
-      border-radius: 50%;
-      background: var(--bg);
-      border: 3px solid var(--accent);
-    }
-    .tl-item .date {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.04em;
-    }
-    .tl-item h3 { font-size: 1.05rem; margin: 4px 0 6px; }
-    .tl-item p { color: var(--text-soft); font-size: 0.93rem; }
-
-    /* ---------- AI reflection ---------- */
-    .ai-banner {
-      background: linear-gradient(130deg, color-mix(in srgb, var(--accent) 92%, #000), var(--accent-2));
-      border-radius: 20px;
-      padding: 48px 40px;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-    .ai-banner::after {
-      content: "";
-      position: absolute;
-      right: -60px; top: -60px;
-      width: 240px; height: 240px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.12);
-    }
-    .ai-banner > * { position: relative; }
-    .ai-banner .kicker { color: rgba(255,255,255,0.8); }
-    .ai-banner h2 { color: #fff; font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 14px; }
-    .ai-banner p { color: rgba(255, 255, 255, 0.92); max-width: 680px; margin-bottom: 28px; }
-    .ai-points {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 18px;
-    }
-    .ai-point {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 12px;
-      padding: 18px;
-      backdrop-filter: blur(4px);
-    }
-    .ai-point h4 { font-size: 0.98rem; margin-bottom: 6px; }
-    .ai-point p { font-size: 0.86rem; color: rgba(255, 255, 255, 0.85); margin: 0; }
-
-    /* ---------- Posts ---------- */
-    .posts { display: grid; gap: 16px; }
-    .post {
-      display: flex;
-      align-items: baseline;
-      gap: 20px;
-      padding: 22px 24px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      transition: transform 0.16s, border-color 0.16s, box-shadow 0.16s;
-    }
-    .post:hover {
-      transform: translateX(4px);
-      border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
-      box-shadow: var(--shadow);
-    }
-    .post .meta { flex-shrink: 0; width: 110px; }
-    .post .meta .pdate { font-size: 0.8rem; color: var(--text-faint); }
-    .post .tag {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 2px 9px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-    .post .body h3 { font-size: 1.08rem; margin-bottom: 4px; letter-spacing: -0.01em; }
-    .post .body p { color: var(--text-soft); font-size: 0.91rem; }
-    .post-note {
-      margin-top: 18px;
-      font-size: 0.86rem;
-      color: var(--text-faint);
-      text-align: center;
-    }
-
-    /* ---------- Contact ---------- */
-    .contact-box {
-      text-align: center;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 52px 32px;
-      box-shadow: var(--shadow);
-    }
-    .contact-box h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 12px; }
-    .contact-box p { color: var(--text-soft); max-width: 480px; margin: 0 auto 26px; }
-    .socials { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .social {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      transition: border-color 0.15s, transform 0.15s, color 0.15s;
-    }
-    .social:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
-    /* ---------- Footer ---------- */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 0;
-      text-align: center;
-      color: var(--text-faint);
-      font-size: 0.86rem;
-    }
-    footer .brand { justify-content: center; margin-bottom: 8px; font-size: 0.95rem; }
-
-    /* ---------- Reveal animation ---------- */
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.in { opacity: 1; transform: none; }
-
-    /* ---------- Responsive ---------- */
-    @media (max-width: 720px) {
-      .nav-links a:not(.nav-cta) { display: none; }
-      .about-grid { grid-template-columns: 1fr; }
-      .hero { padding: 72px 0 60px; }
-      section { padding: 56px 0; }
-      .post { flex-direction: column; gap: 8px; }
-      .post .meta { width: auto; }
-      .ai-banner { padding: 36px 24px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .reveal { transition: none; opacity: 1; transform: none; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ============ NAV ============ -->
-  <nav>
-    <div class="wrap nav-inner">
-      <a href="#top" class="brand"><span class="logo">🧭</span> MindCopilot</a>
-      <div class="nav-links">
-        <a href="#about">关于</a>
-        <a href="#interests">兴趣</a>
-        <a href="#recent">近况</a>
-        <a href="#posts">文章</a>
-        <a href="#contact">联系</a>
-        <button class="theme-btn" id="themeBtn" aria-label="切换主题">🌙</button>
-      </div>
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> 一个关于学习与思考的技术博客</span>
+    <h1>在 <span class="grad">AI 浪潮</span>中<br />记录学习、思考与创造</h1>
+    <p class="lead">
+      你好，我是 MindCopilot。我热爱阅读写作、编程开发与设计创意，
+      最近把大量精力投入到学习和使用 AI 工具上 —— 这里记录我在这个快速变化的时代里的探索与心得。
+    </p>
+    <div class="cta-row">
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">阅读文章 →</a>
+      <a href="#about" class="btn btn-ghost">了解更多</a>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <!-- ============ HERO ============ -->
-  <header class="hero" id="top">
-    <div class="wrap">
-      <span class="eyebrow"><span class="dot"></span> 一个关于学习与思考的技术博客</span>
-      <h1>在 <span class="grad">AI 浪潮</span>中<br />记录学习、思考与创造</h1>
-      <p class="lead">
-        你好，我是 MindCopilot。我热爱阅读写作、编程开发与设计创意，
-        最近把大量精力投入到学习和使用 AI 工具上 —— 这里记录我在这个快速变化的时代里的探索与心得。
-      </p>
-      <div class="cta-row">
-        <a href="#posts" class="btn btn-primary">阅读文章 →</a>
-        <a href="#about" class="btn btn-ghost">了解更多</a>
-      </div>
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">About</div>
+      <h2>关于我</h2>
+      <p>一个对世界保持好奇、喜欢把想法变成文字和作品的人。</p>
     </div>
-  </header>
-
-  <!-- ============ ABOUT ============ -->
-  <section id="about">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">About</div>
-        <h2>关于我</h2>
-        <p>一个对世界保持好奇、喜欢把想法变成文字和作品的人。</p>
-      </div>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>
-            我把自己定位为一名<strong>持续学习者</strong>。阅读与写作是我理解世界的方式，
-            编程与设计是我把想法落地的工具，而 <strong>AI</strong> 正在成为贯穿这一切的新变量。
-          </p>
-          <p>
-            过去，掌握一项技能往往意味着漫长的积累；而今天，AI 让<strong>学习曲线被重新绘制</strong>。
-            一个人可以同时是写作者、开发者和设计者 —— 不是因为样样精通，
-            而是因为有了一位随叫随到的「副驾驶」。这正是 <strong>MindCopilot</strong> 这个名字的由来。
-          </p>
-          <p>
-            在这个博客里，我会诚实地记录自己的学习过程：哪些 AI 工具真正改变了我的工作流，
-            哪些只是噱头；如何用更好的方式提问、协作与判断；以及在效率提升之外，
-            <strong>人的判断力与品味</strong>为什么反而更重要。
-          </p>
-        </div>
-        <aside class="about-card reveal">
-          <h3>速览</h3>
-          <div class="fact">
-            <span class="ico">🧭</span>
-            <div><div class="k">身份</div><div class="v">学习者 · 写作者 · 创造者</div></div>
-          </div>
-          <div class="fact">
-            <span class="ico">🎯</span>
-            <div><div class="k">当前重心</div><div class="v">学习与实践 AI 工具</div></div>
-          </div>
-          <div class="fact">
-            <span class="ico">✍️</span>
-            <div><div class="k">表达方式</div><div class="v">写作 · 代码 · 设计</div></div>
-          </div>
-          <div class="fact">
-            <span class="ico">💡</span>
-            <div><div class="k">信条</div><div class="v">工具会变，好奇心不变</div></div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ INTERESTS ============ -->
-  <section id="interests" class="section-soft">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Interests</div>
-        <h2>我的兴趣领域</h2>
-        <p>四个看似不同的方向，在 AI 时代正彼此交汇、互相增益。</p>
-      </div>
-      <div class="cards">
-        <article class="card reveal">
-          <div class="emoji">📚</div>
-          <h3>阅读与写作</h3>
-          <p>通过阅读输入、通过写作沉淀。我相信清晰的文字来自清晰的思考，写作是最好的思维训练。</p>
-        </article>
-        <article class="card reveal">
-          <div class="emoji">🤖</div>
-          <h3>AI 与机器学习</h3>
-          <p>关注大模型、智能体与 AI 工具的发展，思考它们如何重塑学习方式和创造的边界。</p>
-        </article>
-        <article class="card reveal">
-          <div class="emoji">💻</div>
-          <h3>编程与开发</h3>
-          <p>喜欢把想法做成可用的东西。从小工具到网站，享受让代码运行起来的那一刻。</p>
-        </article>
-        <article class="card reveal">
-          <div class="emoji">🎨</div>
-          <h3>设计与创意</h3>
-          <p>在意细节与体验。好的设计让信息更易理解，也让作品更有温度。</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ RECENT ============ -->
-  <section id="recent">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Now</div>
-        <h2>我最近在做什么</h2>
-        <p>当下的重心：把 AI 工具真正融入日常的学习、写作与创造。</p>
-      </div>
-      <div class="timeline">
-        <div class="tl-item reveal">
-          <div class="date">进行中</div>
-          <h3>系统性地学习与使用 AI 工具</h3>
-          <p>把对话式 AI、编程助手与各类生成工具引入日常工作流，记录哪些真正有效、哪些需要保持警惕。</p>
-        </div>
-        <div class="tl-item reveal">
-          <div class="date">进行中</div>
-          <h3>搭建并完善这个技术博客</h3>
-          <p>用尽量轻量的方式做一个属于自己的写作空间 —— 也就是你现在看到的这个页面。</p>
-        </div>
-        <div class="tl-item reveal">
-          <div class="date">持续</div>
-          <h3>练习「与 AI 协作」的方法论</h3>
-          <p>探索如何更好地提问、拆解任务、审阅结果，把 AI 当作放大思考的伙伴而非替代品。</p>
-        </div>
-        <div class="tl-item reveal">
-          <div class="date">规划中</div>
-          <h3>把学习心得整理成文章</h3>
-          <p>将零散的笔记沉淀为结构化的内容，分享给同样在探索这条路的人。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ AI REFLECTION ============ -->
-  <section>
-    <div class="wrap">
-      <div class="ai-banner reveal">
-        <div class="kicker">In the age of AI</div>
-        <h2>AI 正在改变什么</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
         <p>
-          AI 不只是又一个新工具，它改变了「学习」「创造」与「协作」的底层方式。
-          与其担心被取代，我更愿意理解这场变化，并找到自己在其中的位置。
+          我把自己定位为一名<strong>持续学习者</strong>。阅读与写作是我理解世界的方式，
+          编程与设计是我把想法落地的工具，而 <strong>AI</strong> 正在成为贯穿这一切的新变量。
         </p>
-        <div class="ai-points">
-          <div class="ai-point">
-            <h4>⚡ 学习被加速</h4>
-            <p>从「先掌握再动手」变成「边做边学」，反馈循环大幅缩短。</p>
-          </div>
-          <div class="ai-point">
-            <h4>🧩 能力被拓宽</h4>
-            <p>一个人可以跨越写作、编程与设计的边界，独立完成更完整的作品。</p>
-          </div>
-          <div class="ai-point">
-            <h4>🎯 判断更重要</h4>
-            <p>当生成变得廉价，提出好问题、做出好判断、保持品味成为稀缺能力。</p>
-          </div>
-          <div class="ai-point">
-            <h4>🤝 协作新范式</h4>
-            <p>AI 是随时在线的副驾驶 —— 关键是学会如何引导它、信任它、也校正它。</p>
-          </div>
+        <p>
+          过去，掌握一项技能往往意味着漫长的积累；而今天，AI 让<strong>学习曲线被重新绘制</strong>。
+          一个人可以同时是写作者、开发者和设计者 —— 不是因为样样精通，
+          而是因为有了一位随叫随到的「副驾驶」。这正是 <strong>MindCopilot</strong> 这个名字的由来。
+        </p>
+        <p>
+          在这个博客里，我会诚实地记录自己的学习过程：哪些 AI 工具真正改变了我的工作流，
+          哪些只是噱头；如何用更好的方式提问、协作与判断；以及在效率提升之外，
+          <strong>人的判断力与品味</strong>为什么反而更重要。
+        </p>
+      </div>
+      <aside class="about-card reveal">
+        <h3>速览</h3>
+        <div class="fact">
+          <span class="ico">🧭</span>
+          <div><div class="k">身份</div><div class="v">学习者 · 写作者 · 创造者</div></div>
+        </div>
+        <div class="fact">
+          <span class="ico">🎯</span>
+          <div><div class="k">当前重心</div><div class="v">学习与实践 AI 工具</div></div>
+        </div>
+        <div class="fact">
+          <span class="ico">✍️</span>
+          <div><div class="k">表达方式</div><div class="v">写作 · 代码 · 设计</div></div>
+        </div>
+        <div class="fact">
+          <span class="ico">💡</span>
+          <div><div class="k">信条</div><div class="v">工具会变，好奇心不变</div></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERESTS ============ -->
+<section id="interests" class="section-soft">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">Interests</div>
+      <h2>我的兴趣领域</h2>
+      <p>四个看似不同的方向，在 AI 时代正彼此交汇、互相增益。</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="emoji">📚</div>
+        <h3>阅读与写作</h3>
+        <p>通过阅读输入、通过写作沉淀。我相信清晰的文字来自清晰的思考，写作是最好的思维训练。</p>
+      </article>
+      <article class="card reveal">
+        <div class="emoji">🤖</div>
+        <h3>AI 与机器学习</h3>
+        <p>关注大模型、智能体与 AI 工具的发展，思考它们如何重塑学习方式和创造的边界。</p>
+      </article>
+      <article class="card reveal">
+        <div class="emoji">💻</div>
+        <h3>编程与开发</h3>
+        <p>喜欢把想法做成可用的东西。从小工具到网站，享受让代码运行起来的那一刻。</p>
+      </article>
+      <article class="card reveal">
+        <div class="emoji">🎨</div>
+        <h3>设计与创意</h3>
+        <p>在意细节与体验。好的设计让信息更易理解，也让作品更有温度。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECENT ============ -->
+<section id="recent">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">Now</div>
+      <h2>我最近在做什么</h2>
+      <p>当下的重心：把 AI 工具真正融入日常的学习、写作与创造。</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="date">进行中</div>
+        <h3>系统性地学习与使用 AI 工具</h3>
+        <p>把对话式 AI、编程助手与各类生成工具引入日常工作流，记录哪些真正有效、哪些需要保持警惕。</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="date">进行中</div>
+        <h3>搭建并完善这个技术博客</h3>
+        <p>用尽量轻量的方式做一个属于自己的写作空间 —— 基于 Jekyll，用 Markdown 写作、自动生成文章列表。</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="date">持续</div>
+        <h3>练习「与 AI 协作」的方法论</h3>
+        <p>探索如何更好地提问、拆解任务、审阅结果，把 AI 当作放大思考的伙伴而非替代品。</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="date">规划中</div>
+        <h3>把学习心得整理成文章</h3>
+        <p>将零散的笔记沉淀为结构化的内容，分享给同样在探索这条路的人。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI REFLECTION ============ -->
+<section>
+  <div class="wrap">
+    <div class="ai-banner reveal">
+      <div class="kicker">In the age of AI</div>
+      <h2>AI 正在改变什么</h2>
+      <p>
+        AI 不只是又一个新工具，它改变了「学习」「创造」与「协作」的底层方式。
+        与其担心被取代，我更愿意理解这场变化，并找到自己在其中的位置。
+      </p>
+      <div class="ai-points">
+        <div class="ai-point">
+          <h4>⚡ 学习被加速</h4>
+          <p>从「先掌握再动手」变成「边做边学」，反馈循环大幅缩短。</p>
+        </div>
+        <div class="ai-point">
+          <h4>🧩 能力被拓宽</h4>
+          <p>一个人可以跨越写作、编程与设计的边界，独立完成更完整的作品。</p>
+        </div>
+        <div class="ai-point">
+          <h4>🎯 判断更重要</h4>
+          <p>当生成变得廉价，提出好问题、做出好判断、保持品味成为稀缺能力。</p>
+        </div>
+        <div class="ai-point">
+          <h4>🤝 协作新范式</h4>
+          <p>AI 是随时在线的副驾驶 —— 关键是学会如何引导它、信任它、也校正它。</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============ POSTS ============ -->
-  <section id="posts" class="section-soft">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="kicker">Writing</div>
-        <h2>计划中的文章</h2>
-        <p>博客刚刚起步，以下是我准备动笔的几个主题。它们会随着学习进度陆续更新。</p>
-      </div>
-      <div class="posts">
-        <article class="post reveal">
-          <div class="meta">
-            <div class="pdate">即将发布</div>
-            <span class="tag">AI 工具</span>
-          </div>
-          <div class="body">
-            <h3>我如何用 AI 工具重塑日常工作流</h3>
-            <p>盘点真正进入我日常的几款 AI 工具，以及它们改变了哪些习惯。</p>
-          </div>
-        </article>
-        <article class="post reveal">
-          <div class="meta">
-            <div class="pdate">规划中</div>
-            <span class="tag">协作方法</span>
-          </div>
-          <div class="body">
-            <h3>从 Prompt 到 Agent：与 AI 协作的几种姿势</h3>
-            <p>提问、拆解、审阅 —— 把 AI 用好，靠的不只是工具，更是方法。</p>
-          </div>
-        </article>
-        <article class="post reveal">
-          <div class="meta">
-            <div class="pdate">规划中</div>
-            <span class="tag">编程</span>
-          </div>
-          <div class="body">
-            <h3>AI 辅助编程的实践笔记</h3>
-            <p>用 AI 写代码时，哪些环节真的提速，哪些地方仍需自己把关。</p>
-          </div>
-        </article>
-        <article class="post reveal">
-          <div class="meta">
-            <div class="pdate">规划中</div>
-            <span class="tag">思考</span>
-          </div>
-          <div class="body">
-            <h3>AI 时代，阅读与写作还重要吗？</h3>
-            <p>当机器能生成文字，人类的阅读与写作意味着什么 —— 一些个人思考。</p>
-          </div>
-        </article>
-      </div>
-      <p class="post-note">📝 文章正在路上，欢迎稍后回来查看。</p>
+<!-- ============ POSTS ============ -->
+<section id="posts" class="section-soft">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">Writing</div>
+      <h2>最新文章</h2>
+      <p>记录学习与思考的笔记。文章用 Markdown 写作，列表随每篇发布自动更新。</p>
     </div>
-  </section>
 
-  <!-- ============ CONTACT ============ -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="contact-box reveal">
-        <div class="kicker" style="color:var(--accent);font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;">Contact</div>
-        <h2>一起交流</h2>
-        <p>如果你也在探索 AI、写作或编程，欢迎与我联系，聊聊学习路上的发现与困惑。</p>
-        <div class="socials">
-          <a class="social" href="mailto:mindcopilotone@gmail.com">✉️ 发邮件</a>
-          <a class="social" href="https://github.com/mindcopilot" target="_blank" rel="noopener">💻 GitHub</a>
+    {%- if site.posts.size > 0 %}
+    <div class="posts">
+      {%- for post in site.posts limit: 5 %}
+      <a class="post reveal" href="{{ post.url | relative_url }}">
+        <div class="meta">
+          <div class="pdate">{{ post.date | date: "%Y-%m-%d" }}</div>
+          {%- if post.tags.first %}
+          <span class="tag">{{ post.tags.first }}</span>
+          {%- endif %}
         </div>
+        <div class="body">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 64 }}</p>
+        </div>
+        <span class="post-arrow">→</span>
+      </a>
+      {%- endfor %}
+    </div>
+    <div class="posts-more">
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-ghost">查看全部文章 →</a>
+    </div>
+    {%- else %}
+    <p class="post-note">📝 文章正在路上，欢迎稍后回来查看。</p>
+    {%- endif %}
+
+    <div class="roadmap reveal">
+      <h3 class="roadmap-title">✦ 写作计划</h3>
+      <ul class="roadmap-list">
+        <li><span class="rm-tag">AI 工具</span> 我如何用 AI 工具重塑日常工作流</li>
+        <li><span class="rm-tag">协作方法</span> 从 Prompt 到 Agent：与 AI 协作的几种姿势</li>
+        <li><span class="rm-tag">编程</span> AI 辅助编程的实践笔记</li>
+        <li><span class="rm-tag">思考</span> AI 时代，阅读与写作还重要吗？</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <div class="kicker">Contact</div>
+      <h2>一起交流</h2>
+      <p>如果你也在探索 AI、写作或编程，欢迎与我联系，聊聊学习路上的发现与困惑。</p>
+      <div class="socials">
+        <a class="social" href="mailto:{{ site.email }}">✉️ 发邮件</a>
+        <a class="social" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">💻 GitHub</a>
+        <a class="social" href="{{ '/feed.xml' | relative_url }}">📡 RSS</a>
       </div>
     </div>
-  </section>
-
-  <!-- ============ FOOTER ============ -->
-  <footer>
-    <div class="wrap">
-      <div class="brand"><span class="logo">🧭</span> MindCopilot</div>
-      <div>© <span id="year"></span> MindCopilot · 在 AI 浪潮中持续学习</div>
-      <div style="margin-top:6px;">由 GitHub Pages 托管</div>
-    </div>
-  </footer>
-
-  <script>
-    // ----- Theme toggle -----
-    (function () {
-      var root = document.documentElement;
-      var btn = document.getElementById('themeBtn');
-      var stored = localStorage.getItem('theme');
-      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var theme = stored || (prefersDark ? 'dark' : 'light');
-
-      function apply(t) {
-        root.setAttribute('data-theme', t);
-        btn.textContent = t === 'dark' ? '☀️' : '🌙';
-      }
-      apply(theme);
-
-      btn.addEventListener('click', function () {
-        theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        apply(theme);
-        localStorage.setItem('theme', theme);
-      });
-    })();
-
-    // ----- Current year -----
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ----- Reveal on scroll -----
-    (function () {
-      var items = document.querySelectorAll('.reveal');
-      if (!('IntersectionObserver' in window)) {
-        items.forEach(function (el) { el.classList.add('in'); });
-        return;
-      }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            e.target.classList.add('in');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12 });
-      items.forEach(function (el) { io.observe(el); });
-    })();
-  </script>
-</body>
-</html>
+  </div>
+</section>

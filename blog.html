@@ -1,0 +1,46 @@
+---
+layout: default
+title: 文章
+description: MindCopilot 的全部文章 —— 关于 AI 工具、编程、阅读写作与设计的学习笔记。
+permalink: /blog/
+---
+
+<header class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Writing</span>
+    <h1>文章</h1>
+    <p class="lead">学习、思考与创造的笔记。共 {{ site.posts.size }} 篇 —— 用 Markdown 写作，列表自动生成。</p>
+  </div>
+</header>
+
+<section class="blog-list-section">
+  <div class="wrap wrap-narrow">
+    {%- if site.posts.size > 0 %}
+    {%- assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {%- for year in posts_by_year %}
+    <div class="year-group">
+      <h2 class="year-label">{{ year.name }}</h2>
+      <div class="posts">
+        {%- for post in year.items %}
+        <a class="post reveal" href="{{ post.url | relative_url }}">
+          <div class="meta">
+            <div class="pdate">{{ post.date | date: "%m-%d" }}</div>
+            {%- if post.tags.first %}
+            <span class="tag">{{ post.tags.first }}</span>
+            {%- endif %}
+          </div>
+          <div class="body">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 88 }}</p>
+          </div>
+          <span class="post-arrow">→</span>
+        </a>
+        {%- endfor %}
+      </div>
+    </div>
+    {%- endfor %}
+    {%- else %}
+    <p class="post-note">📝 还没有发布文章。把第一篇 Markdown 放进 <code>_posts/</code> 目录就会出现在这里。</p>
+    {%- endif %}
+  </div>
+</section>
