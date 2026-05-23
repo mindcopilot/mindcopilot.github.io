@@ -2,67 +2,166 @@
 layout: default
 title: 首页
 description: >-
-  心智罗盘是一个技术博客，记录在人工智能时代的学习、思考与创造 ——
-  涵盖 AI 工具实践、编程开发、阅读写作与设计创意。
+  心智罗盘（MindCopilot）—— 观察 AI 时代正在重塑的社会形态与社会结构，
+  记录 Agent 蜂群协作的范式，探索去中心化 AI 自治的可能。
 ---
 
 <!-- ============ HERO ============ -->
-<header class="hero" id="top">
-  <div class="wrap">
-    <span class="eyebrow"><span class="dot"></span> 一个关于学习与思考的技术博客</span>
-    <h1>在 <span class="grad">AI 浪潮</span>中<br />记录学习、思考与创造</h1>
+<header class="hero hero-futuristic" id="top">
+  <canvas id="swarmCanvas" class="swarm-canvas" aria-hidden="true"></canvas>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="wrap hero-content">
+    <span class="eyebrow eyebrow-neon">
+      <span class="dot"></span>
+      <span class="eyebrow-text">SIGNAL · 2026 — AI / SOCIETY / SWARM</span>
+    </span>
+    <h1 class="hero-title">
+      在 <span class="grad">智能涌现</span> 的时代<br />
+      为人类心智<br />
+      校准 <span class="grad-2">未来航向</span>
+    </h1>
     <p class="lead">
-      你好，这里是「心智罗盘」。我热爱阅读写作、编程开发与设计创意，
-      最近把大量精力投入到学习和使用 AI 工具上 —— 这里记录我在这个快速变化的时代里的探索与心得。
+      这里是「心智罗盘」。我观察 AI 时代正在重塑的<strong>社会形态</strong>与<strong>社会结构</strong>，
+      记录 <strong>Agent 蜂群协作</strong>的新范式，
+      探索<strong>去中心化 AI 自治</strong>的可能 —— 并诚实地记录我自己在这条路上的实践与思考。
     </p>
     <div class="cta-row">
-      <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">阅读文章 →</a>
-      <a href="#about" class="btn btn-ghost">了解更多</a>
+      <a href="#vision" class="btn btn-primary">进入观察站 →</a>
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-ghost">阅读文章</a>
+    </div>
+
+    <div class="hero-tags">
+      <span class="hero-tag"># AI 社会形态</span>
+      <span class="hero-tag"># 社会结构演化</span>
+      <span class="hero-tag"># Agent 蜂群</span>
+      <span class="hero-tag"># 去中心化自治</span>
     </div>
   </div>
 </header>
 
-<!-- ============ ABOUT ============ -->
-<section id="about">
+<!-- ============ THESES (核心议题) ============ -->
+<section id="vision" class="section-theses">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="kicker">About</div>
+      <div class="kicker">// Vision · 核心议题</div>
+      <h2>四个我正在观察的方向</h2>
+      <p>它们不是彼此孤立的话题，而是同一场变革的不同切面。</p>
+    </div>
+
+    <div class="theses-grid">
+      <article class="thesis reveal">
+        <div class="thesis-num">01 / SOCIETY</div>
+        <h3>AI 时代的社会形态</h3>
+        <p>
+          当生产力的瓶颈从「体力 → 脑力 → 调度力」再次迁移，
+          劳动、教育与创造的范式被重新定义。
+          注意力经济正在让位给<strong>判断力经济</strong>，
+          个体开始以「人 + Agent 群」的复合形态参与社会。
+        </p>
+        <ul class="thesis-points">
+          <li>认知盈余：每个人都可以调度无限的"知识工"</li>
+          <li>超级个体：以多 Agent 支撑的复合身份</li>
+          <li>从注意力经济 → 判断力经济</li>
+        </ul>
+      </article>
+
+      <article class="thesis reveal">
+        <div class="thesis-num">02 / STRUCTURE</div>
+        <h3>AI 时代的社会结构</h3>
+        <p>
+          组织从层级金字塔走向蜂群网格。
+          社会被切分为三层：<strong>人类公民 / 自主 Agent / 连接两者的协议层</strong>。
+          信任的来源也在迁移 —— 从「机构背书」转向「可验证计算与加密签名」。
+        </p>
+        <ul class="thesis-points">
+          <li>三层架构：人 / Agent / 协议</li>
+          <li>组织演化：金字塔 → 网格 → DAO</li>
+          <li>新博弈：模型方 / 数据方 / 协议方 / 个体</li>
+        </ul>
+      </article>
+
+      <article class="thesis reveal">
+        <div class="thesis-num">03 / SWARM</div>
+        <h3>Agent 蜂群协作</h3>
+        <p>
+          单个 Agent 是工具，<strong>群体 Agent 才是新物种</strong>。
+          通过协议互通（MCP / A2A / ACP），
+          多个 Agent 可以分工、协商、互相评审 ——
+          涌现出超越个体之和的群智。
+        </p>
+        <ul class="thesis-points">
+          <li>角色分工：规划 / 执行 / 评审 / 监督</li>
+          <li>共享世界模型 + 共享记忆</li>
+          <li>协议化通讯：从单次对话到长期生态</li>
+        </ul>
+      </article>
+
+      <article class="thesis reveal">
+        <div class="thesis-num">04 / AUTONOMY</div>
+        <h3>去中心化的 AI 自治</h3>
+        <p>
+          当 Agent 可以在链上自主执行、自主结算、自我治理，
+          我们会看到第一批<strong>自主经济单元</strong>。
+          隐私优先的本地模型、可验证的执行轨迹、
+          反垄断的多元生态，是这一切的底座。
+        </p>
+        <ul class="thesis-points">
+          <li>链上可验证执行 / 自主结算</li>
+          <li>本地模型 + 联邦学习的隐私底座</li>
+          <li>多元生态对抗模型垄断</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="section-soft">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">// About</div>
       <h2>关于我</h2>
-      <p>一个对世界保持好奇、喜欢把想法变成文字和作品的人。</p>
+      <p>一个用阅读、写作与代码，在 AI 时代为自己绘制路线的人。</p>
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
         <p>
-          我把自己定位为一名<strong>持续学习者</strong>。阅读与写作是我理解世界的方式，
-          编程与设计是我把想法落地的工具，而 <strong>AI</strong> 正在成为贯穿这一切的新变量。
+          我把自己定位为一名 <strong>持续学习者</strong> 与 <strong>未来观察者</strong>。
+          阅读与写作是我理解世界的方式，编程与设计是我把想法落地的工具，
+          而 <strong>AI</strong> 正在成为贯穿这一切的新坐标系。
         </p>
         <p>
-          过去，掌握一项技能往往意味着漫长的积累；而今天，AI 让<strong>学习曲线被重新绘制</strong>。
-          一个人可以同时是写作者、开发者和设计者 —— 不是因为样样精通，
-          而是因为有了一位随叫随到的「副驾驶」。在工具与信息爆炸的当下，比起跑得更快，更难的是不迷失方向 —— <strong>心智罗盘</strong>这个名字，记录的就是我寻找方向的过程。
+          过去，掌握一项技能往往意味着漫长的积累；
+          今天，AI 让<strong>学习曲线被重新绘制</strong>。
+          一个人可以同时是写作者、开发者、设计者与策展人 ——
+          不是因为样样精通，而是因为拥有一群随叫随到的「副驾驶」。
         </p>
         <p>
-          在这个博客里，我会诚实地记录自己的学习过程：哪些 AI 工具真正改变了我的工作流，
-          哪些只是噱头；如何用更好的方式提问、协作与判断；以及在效率提升之外，
-          <strong>人的判断力与品味</strong>为什么反而更重要。
+          但工具越强，方向越重要。
+          在信息与可能性双重爆炸的当下，比起跑得更快，
+          更难的是<strong>不迷失方向</strong> ——
+          「心智罗盘」这个名字，记录的就是我寻找方向、
+          并尝试帮助更多人找到方向的过程。
         </p>
       </div>
       <aside class="about-card reveal">
-        <h3>速览</h3>
+        <h3>// Bio</h3>
         <div class="fact">
-          <span class="ico">🧭</span>
+          <span class="ico">⌖</span>
           <div><div class="k">身份</div><div class="v">学习者 · 写作者 · 创造者</div></div>
         </div>
         <div class="fact">
-          <span class="ico">🎯</span>
-          <div><div class="k">当前重心</div><div class="v">学习与实践 AI 工具</div></div>
+          <span class="ico">◎</span>
+          <div><div class="k">当前重心</div><div class="v">AI 社会形态 / Agent 蜂群</div></div>
         </div>
         <div class="fact">
-          <span class="ico">✍️</span>
+          <span class="ico">◇</span>
           <div><div class="k">表达方式</div><div class="v">写作 · 代码 · 设计</div></div>
         </div>
         <div class="fact">
-          <span class="ico">💡</span>
+          <span class="ico">✦</span>
           <div><div class="k">信条</div><div class="v">工具会变，好奇心不变</div></div>
         </div>
       </aside>
@@ -70,81 +169,69 @@ description: >-
   </div>
 </section>
 
-<!-- ============ INTERESTS ============ -->
-<section id="interests" class="section-soft">
+<!-- ============ SWARM PROTOCOL ============ -->
+<section id="swarm">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="kicker">Interests</div>
-      <h2>我的兴趣领域</h2>
-      <p>四个看似不同的方向，在 AI 时代正彼此交汇、互相增益。</p>
+      <div class="kicker">// Swarm Protocol</div>
+      <h2>当一个 Agent 不够用时</h2>
+      <p>未来的工作流不再是「一个人调用一个 AI」，而是<strong>一群 Agent 在协议层互相对话、彼此校准</strong>。</p>
     </div>
-    <div class="cards">
-      <article class="card reveal">
-        <div class="emoji">📚</div>
-        <h3>阅读与写作</h3>
-        <p>通过阅读输入、通过写作沉淀。我相信清晰的文字来自清晰的思考，写作是最好的思维训练。</p>
-      </article>
-      <article class="card reveal">
-        <div class="emoji">🤖</div>
-        <h3>AI 与机器学习</h3>
-        <p>关注大模型、智能体与 AI 工具的发展，思考它们如何重塑学习方式和创造的边界。</p>
-      </article>
-      <article class="card reveal">
-        <div class="emoji">💻</div>
-        <h3>编程与开发</h3>
-        <p>喜欢把想法做成可用的东西。从小工具到网站，享受让代码运行起来的那一刻。</p>
-      </article>
-      <article class="card reveal">
-        <div class="emoji">🎨</div>
-        <h3>设计与创意</h3>
-        <p>在意细节与体验。好的设计让信息更易理解，也让作品更有温度。</p>
-      </article>
-    </div>
-  </div>
-</section>
 
-<!-- ============ RECENT ============ -->
-<section id="recent">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="kicker">Now</div>
-      <h2>我最近在做什么</h2>
-      <p>当下的重心：把 AI 工具真正融入日常的学习、写作与创造。</p>
-    </div>
-    <div class="timeline">
-      <div class="tl-item reveal">
-        <div class="date">进行中</div>
-        <h3>系统性地学习与使用 AI 工具</h3>
-        <p>把对话式 AI、编程助手与各类生成工具引入日常工作流，记录哪些真正有效、哪些需要保持警惕。</p>
+    <div class="swarm-row reveal">
+      <div class="swarm-viz" aria-hidden="true">
+        <div class="orbit orbit-1"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-3"></div>
+        <div class="node node-center"><span>YOU</span></div>
+        <div class="node node-1"><span>Planner</span></div>
+        <div class="node node-2"><span>Coder</span></div>
+        <div class="node node-3"><span>Critic</span></div>
+        <div class="node node-4"><span>Reader</span></div>
+        <div class="node node-5"><span>Memory</span></div>
+        <div class="node node-6"><span>Designer</span></div>
       </div>
-      <div class="tl-item reveal">
-        <div class="date">进行中</div>
-        <h3>搭建并完善这个技术博客</h3>
-        <p>用尽量轻量的方式做一个属于自己的写作空间 —— 基于 Jekyll，用 Markdown 写作、自动生成文章列表。</p>
-      </div>
-      <div class="tl-item reveal">
-        <div class="date">持续</div>
-        <h3>练习「与 AI 协作」的方法论</h3>
-        <p>探索如何更好地提问、拆解任务、审阅结果，把 AI 当作放大思考的伙伴而非替代品。</p>
-      </div>
-      <div class="tl-item reveal">
-        <div class="date">规划中</div>
-        <h3>把学习心得整理成文章</h3>
-        <p>将零散的笔记沉淀为结构化的内容，分享给同样在探索这条路的人。</p>
+      <div class="swarm-text">
+        <h3>从「单兵 Copilot」到「多 Agent 蜂群」</h3>
+        <p>
+          一个 Agent 善于回答问题，
+          但当任务足够复杂 —— 比如写一篇有据可查的长文、
+          重构一个跨模块的工程、设计一套有体系的产品 ——
+          单兵作战很快就会触顶。
+        </p>
+        <p>
+          蜂群的关键不是数量，而是<strong>角色与协议</strong>：
+          一个 Planner 拆解任务、一群 Worker 并行执行、
+          一个 Critic 提出质疑、一个 Memory 沉淀经验、
+          一个 Orchestrator 在它们之间路由消息。
+        </p>
+        <p>
+          这套范式正在被 Claude Code / Cursor / Devin /
+          各类 Agentic IDE 早期验证。
+          我在写作和编程的日常里，也在不断实验它的边界。
+        </p>
+        <div class="swarm-protocols">
+          <span class="proto-chip">MCP</span>
+          <span class="proto-chip">A2A</span>
+          <span class="proto-chip">ACP</span>
+          <span class="proto-chip">Sub-agents</span>
+          <span class="proto-chip">Tool-use</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ AI REFLECTION ============ -->
-<section>
+<section class="section-soft">
   <div class="wrap">
     <div class="ai-banner reveal">
-      <div class="kicker">In the age of AI</div>
+      <div class="kicker">// In the age of AI</div>
       <h2>AI 正在改变什么</h2>
       <p>
         AI 不只是又一个新工具，它改变了「学习」「创造」与「协作」的底层方式。
-        与其担心被取代，我更愿意理解这场变化，并找到自己在其中的位置。
+        与其担心被取代，我更愿意理解这场变化，
+        并找到自己 —— 以及人类整体 —— 在其中的位置。
       </p>
       <div class="ai-points">
         <div class="ai-point">
@@ -160,9 +247,42 @@ description: >-
           <p>当生成变得廉价，提出好问题、做出好判断、保持品味成为稀缺能力。</p>
         </div>
         <div class="ai-point">
-          <h4>🤝 协作新范式</h4>
-          <p>AI 是随时在线的副驾驶 —— 关键是学会如何引导它、信任它、也校正它。</p>
+          <h4>🐝 协作新范式</h4>
+          <p>从「调用工具」到「指挥蜂群」—— 学会引导它、信任它、也校正它。</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOW ============ -->
+<section id="recent">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">// Now</div>
+      <h2>我最近在做什么</h2>
+      <p>当下的几条主线 —— 既有动手实践，也有持续观察。</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="date">进行中</div>
+        <h3>把 AI 工具真正嵌入日常工作流</h3>
+        <p>对话式 AI、Agentic 编程助手、生成式工具 —— 哪些真正改变了效率，哪些只是新一轮噱头。</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="date">进行中</div>
+        <h3>观察 Agent 蜂群协作的早期实践</h3>
+        <p>从 Claude Code 的 sub-agent，到 MCP / A2A 协议生态 —— 跟进多 Agent 协作的第一波真实案例。</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="date">持续</div>
+        <h3>追踪去中心化 AI 与链上 Agent</h3>
+        <p>本地模型、可验证计算、自主经济单元 —— 我认为这是 AI 浪潮里被低估的"第二条曲线"。</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="date">规划中</div>
+        <h3>把碎片观察沉淀成长文</h3>
+        <p>将零散笔记整理为结构化的内容，分享给同样在探索这条路的人。</p>
       </div>
     </div>
   </div>
@@ -172,9 +292,9 @@ description: >-
 <section id="posts" class="section-soft">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="kicker">Writing</div>
+      <div class="kicker">// Writing</div>
       <h2>最新文章</h2>
-      <p>记录学习与思考的笔记。文章用 Markdown 写作，列表随每篇发布自动更新。</p>
+      <p>关于 AI 工具、Agent、社会观察的笔记。文章用 Markdown 写作，发布后自动更新到这里。</p>
     </div>
 
     {%- if site.posts.size > 0 %}
@@ -205,10 +325,11 @@ description: >-
     <div class="roadmap reveal">
       <h3 class="roadmap-title">✦ 写作计划</h3>
       <ul class="roadmap-list">
-        <li><span class="rm-tag">AI 工具</span> 我如何用 AI 工具重塑日常工作流</li>
-        <li><span class="rm-tag">Agent</span> 怎么给 AI Agent 设计好用的工具</li>
-        <li><span class="rm-tag">编程</span> AI 辅助编程的实践笔记</li>
-        <li><span class="rm-tag">思考</span> AI 时代，阅读与写作还重要吗？</li>
+        <li><span class="rm-tag">社会形态</span> 从注意力经济到判断力经济：稀缺资源的迁移</li>
+        <li><span class="rm-tag">社会结构</span> 人 / Agent / 协议：未来社会的三层架构</li>
+        <li><span class="rm-tag">Agent 蜂群</span> 多 Agent 协作中的角色与协议设计</li>
+        <li><span class="rm-tag">去中心化</span> 链上 Agent 与自主经济单元的早期形态</li>
+        <li><span class="rm-tag">实践</span> 我如何用 AI 工具重塑日常工作流</li>
       </ul>
     </div>
   </div>
@@ -218,9 +339,9 @@ description: >-
 <section id="contact">
   <div class="wrap">
     <div class="contact-box reveal">
-      <div class="kicker">Contact</div>
+      <div class="kicker">// Contact</div>
       <h2>一起交流</h2>
-      <p>如果你也在探索 AI、写作或编程，欢迎与我联系，聊聊学习路上的发现与困惑。</p>
+      <p>如果你也在思考 AI、社会、Agent 或写作，欢迎与我联系，聊聊路上的发现与困惑。</p>
       <div class="socials">
         <a class="social" href="mailto:{{ site.email }}">✉️ 发邮件</a>
         <a class="social" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">💻 GitHub</a>
